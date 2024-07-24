@@ -3,6 +3,21 @@ import { Text, View, Button, StyleSheet } from 'react-native';
 import Swiper from 'react-native-deck-swiper';
 
 export default function SwipeCardScreen() {
+
+  const handleSwipedLeft = () => {
+    console.log('swiped left');
+  }
+
+  const handleSwipedRight = () => {
+    console.log('swiped right');
+  }
+
+  const handleSwipedTop = () => {
+    console.log('swiped up');
+  }
+
+
+
   return (
     <View style={styles.container}>
     <Swiper
@@ -14,11 +29,15 @@ export default function SwipeCardScreen() {
             </View>
           )
         }}
+        onSwipedLeft={handleSwipedLeft}
+        onSwipedRight={handleSwipedRight}
+        onSwipedTop={handleSwipedTop}
         onSwiped={(cardIndex) => {console.log(cardIndex)}}
         onSwipedAll={() => {console.log('onSwipedAll')}}
         cardIndex={0}
         backgroundColor={'#4FD0E9'}
-        stackSize= {3}>
+        stackSize= {3}
+        disableBottomSwipe={true}>
       </Swiper>
     </View>
   )
